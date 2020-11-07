@@ -29,6 +29,6 @@ class TemaController extends Controller
 
     public function show(Tema $id)
     {
-        return 'LABAS';
+        return view('temos/show', compact('id'));
     }
 }
