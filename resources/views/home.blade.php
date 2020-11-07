@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <span class="align-items-center card-header d-flex justify-content-between">
+                    {{ __('Temų sąrašas') }}
+                    <a href="/tema/create" class="btn btn-primary float-right">Pridėti</a>
+                </span>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +16,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                <table class="col-md-12" border="1">
+                    <th style="width: 34%">Labas</th>
+                    <th style="width: 33%">As</th>
+                    <th style="width: 33%">krabas</th>
+                </table>
                 </div>
             </div>
         </div>
