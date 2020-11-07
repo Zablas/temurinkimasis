@@ -28,8 +28,24 @@ class TemaController extends Controller
         return redirect('/home');
     }
 
+    public function accept(Tema $id)
+    {
+        $arSutiko = \request('yes') ? true : false;
+        if($arSutiko)
+        {
+            $id->pasirinkusieji++;
+            $id->save();
+        }
+        return redirect('/home');
+    }
+
     public function show(Tema $id)
     {
         return view('temos/show', compact('id'));
+    }
+
+    public function choose(Tema $id)
+    {
+        return view('temos/choose', compact('id'));
     }
 }

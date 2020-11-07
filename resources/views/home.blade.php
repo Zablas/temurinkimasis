@@ -28,7 +28,10 @@
                             <td>{{$tema->pavadinimas}}</td>
                             <td>{{ \App\Models\User::find($tema->user_id)->name }}</td>
                             <td>{{ $tema->stud_limitas - $tema->pasirinkusieji }}</td>
-                            <td><a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a></td>
+                            <td>
+                                <a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a>
+                                <a href="/tema/choose/{{$tema->id}}" class="btn btn-primary">Rinktis</a>
+                            </td>
                         </tr>
                     @endforeach
                 </table>

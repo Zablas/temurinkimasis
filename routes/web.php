@@ -23,4 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/tema/insert', [App\Http\Controllers\TemaController::class, 'insert']);
 Route::post('/tema/create', [App\Http\Controllers\TemaController::class, 'create'])->name('tema/create');
+Route::post('/tema/accept{id}', [App\Http\Controllers\TemaController::class, 'accept'])->name('tema/accept/');
 Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
+Route::get('/tema/choose/{id}', [App\Http\Controllers\TemaController::class, 'choose']);
