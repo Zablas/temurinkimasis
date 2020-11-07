@@ -7,7 +7,7 @@
             <div class="card">
                 <span class="align-items-center card-header d-flex justify-content-between">
                     {{ __('Temų sąrašas') }}
-                    <a href="/tema/create" class="btn btn-primary float-right">Pridėti</a>
+                    <a href="/tema/insert" class="btn btn-primary float-right">Pridėti</a>
                 </span>
 
                 <div class="card-body">
@@ -17,9 +17,18 @@
                         </div>
                     @endif
                 <table class="col-md-12" border="1">
-                    <th style="width: 34%">Labas</th>
-                    <th style="width: 33%">As</th>
-                    <th style="width: 33%">krabas</th>
+                    <tr>
+                        <th style="width: 34%">Pavadinimas</th>
+                        <th style="width: 33%">Autorius</th>
+                        <th style="width: 33%">Veiksmai</th>
+                    </tr>
+                    @foreach($temos as $tema)
+                        <tr>
+                            <td>{{$tema->pavadinimas}}</td>
+                            <td>{{ \App\Models\User::find($tema->user_id)->name }}</td>
+                            <td><a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a></td>
+                        </tr>
+                    @endforeach
                 </table>
                 </div>
             </div>

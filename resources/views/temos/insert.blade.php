@@ -8,16 +8,16 @@
                 <div class="card-header">{{ __('Sukurti naują temą') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('tema/create') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas') }}</label>
+                            <label for="pavadinimas" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="pavadinimas" type="text" class="form-control @error('pavadinimas') is-invalid @enderror" name="pavadinimas" value="{{ old('pavadinimas') }}" required autocomplete="pavadinimas" autofocus>
 
-                                @error('name')
+                                @error('pavadinimas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -26,18 +26,18 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Aprašas') }}</label>
+                            <label for="aprasas" class="col-md-4 col-form-label text-md-right">{{ __('Aprašas') }}</label>
 
                             <div class="col-md-6">
                                 <textarea id="aprasas" type="text"
-                                          class="form-control @error('name') is-invalid @enderror"
+                                          class="form-control @error('aprasas') is-invalid @enderror"
                                           style="overflow: auto; resize: none"
                                           name="aprasas"
                                           value="{{ old('aprasas') }}"
                                           required autocomplete="aprasas"
                                           rows="10"
                                           autofocus></textarea>
-                                @error('email')
+                                @error('aprasas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
