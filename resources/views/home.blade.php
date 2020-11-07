@@ -18,14 +18,16 @@
                     @endif
                 <table class="col-md-12" border="1">
                     <tr>
-                        <th style="width: 34%">Pavadinimas</th>
-                        <th style="width: 33%">Autorius</th>
-                        <th style="width: 33%">Veiksmai</th>
+                        <th style="width: 25%">Pavadinimas</th>
+                        <th style="width: 25%">Autorius</th>
+                        <th style="width: 25%">Laisvos vietos</th>
+                        <th style="width: 25%">Veiksmai</th>
                     </tr>
                     @foreach($temos as $tema)
                         <tr>
                             <td>{{$tema->pavadinimas}}</td>
                             <td>{{ \App\Models\User::find($tema->user_id)->name }}</td>
+                            <td>{{ $tema->stud_limitas - $tema->pasirinkusieji }}</td>
                             <td><a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a></td>
                         </tr>
                     @endforeach

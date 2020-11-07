@@ -18,6 +18,8 @@ class CreateTemasTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('pavadinimas');
             $table->text('aprasas');
+            $table->integer('stud_limitas');
+            $table->integer('pasirinkusieji')->default(0);
             $table->timestamps();
         });
     }

@@ -21,7 +21,8 @@ class TemaController extends Controller
     {
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
-            'aprasas' => 'required'
+            'aprasas' => 'required',
+            'stud_limitas' => 'required|numeric'
         ]);
         auth()->user()->temas()->create($duomenys);
         return redirect('/home');
