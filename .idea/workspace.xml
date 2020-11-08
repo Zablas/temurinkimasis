@@ -31,12 +31,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161b95f1-6592-4d97-a489-51a9e0d5c153" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/temos/delete.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/temos/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Siuloma.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_150736_create_siulomas_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TemaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TemaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/temos/insert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/temos/insert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,20 +169,24 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jxWm3RRGkDhac0DtNFzNfLLkbb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/temos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/siulomos" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\siulomos" />
       <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\temos" />
     </key>
   </component>
@@ -201,7 +205,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604746388190</updated>
       <workItem from="1604746393330" duration="21709000" />
-      <workItem from="1604832218940" duration="10152000" />
+      <workItem from="1604832218940" duration="11127000" />
     </task>
     <servers />
   </component>
@@ -218,6 +222,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="707" y="236" key="SettingsEditor" timestamp="1604832280202">

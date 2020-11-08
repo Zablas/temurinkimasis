@@ -32,3 +32,5 @@ Route::get('/tema/choose/{id}', [App\Http\Controllers\TemaController::class, 'ch
 Route::get('/tema/delete/{id}', [App\Http\Controllers\TemaController::class, 'delete']);
 Route::delete('/tema/confdelete/{id}', [App\Http\Controllers\TemaController::class, 'confirmDeletion'])->name('tema/cdelete');
 Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
+
+Route::get('/siuloma', [App\Http\Controllers\SiulomaController::class, 'index']);
