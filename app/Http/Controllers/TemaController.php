@@ -32,7 +32,7 @@ class TemaController extends Controller
     {
         if(auth()->user()->pasirinkta_tema) abort(404, 'Temą jau esate pasirinkę.'); // Galima rinktis tik jei dar nera pasirinktos temos
         if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
-        if(\request('yes'))
+        if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
         {
             $id->pasirinkusieji++;
             auth()->user()->pasirinkta_tema = $id->id;
@@ -52,5 +52,23 @@ class TemaController extends Controller
         if(auth()->user()->pasirinkta_tema) abort(404, 'Temą jau esate pasirinkę.'); // Galima rinktis tik jei dar nera pasirinktos temos
         if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
         return view('temos/choose', compact('id'));
+    }
+
+    public function abandon()
+    {
+        $tema = Tema::findOrFail(auth()->user()->pasirinkta_tema);
+        return view('temos/abandon', compact('tema'));
+    }
+
+    public function confirmAbandonment(Tema $id)
+    {
+        if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
+        {
+            $id->pasirinkusieji--;
+            auth()->user()->pasirinkta_tema = null;
+            $id->save();
+            auth()->user()->save();
+        }
+        return redirect('/home');
     }
 }

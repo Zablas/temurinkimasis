@@ -5,17 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Ar tikrai norite rinktis šią temą?') }}</div>
+                <div class="card-header">{{ __('Ar tikrai norite atsisakyti šios temos?') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tema/accept/', $id) }}">
+                    <form method="POST" action="{{ route('tema/caband', $tema) }}">
                         @csrf
                         @method('PUT')
 
                         <div class="form-group row align-items-baseline">
                             <label for="pavadinimas" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas:') }}</label>
                             <div class="col-md-6">
-                                {{$id->pavadinimas}}
+                                {{$tema->pavadinimas}}
                             </div>
                         </div>
 

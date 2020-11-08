@@ -7,7 +7,12 @@
             <div class="card">
                 <span class="align-items-center card-header d-flex justify-content-between">
                     {{ __('Temų sąrašas') }}
-                    <a href="/tema/insert" class="btn btn-primary float-right">Pridėti</a>
+                    <div class="float-right">
+                        @if(auth()->user()->pasirinkta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
+                            <a href="/tema/abandon" class="btn btn-primary">Atsisakyti temos</a>
+                        @endif
+                        <a href="/tema/insert" class="btn btn-primary">Pridėti</a>
+                    </div>
                 </span>
 
                 <div class="card-body">
@@ -31,7 +36,7 @@
                             <td>
                                 <a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a>
                                 @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema)
-                                    <a href="/tema/choose/{{$tema->id}}" class="btn btn-primary">Rinktis</a>
+                                    <a href="/tema/choose/{{$tema->id}}" class="btn btn-primary">Rinktis</a>  {{-- Galima rinktis tik atitikus salygas --}}
                                 @endif
                             </td>
                         </tr>
