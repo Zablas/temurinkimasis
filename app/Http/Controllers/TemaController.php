@@ -30,11 +30,14 @@ class TemaController extends Controller
 
     public function accept(Tema $id)
     {
-        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima');
+        if(auth()->user()->pasirinkta_tema) abort(404, 'Temą jau esate pasirinkę.'); // Galima rinktis tik jei dar nera pasirinktos temos
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
         if(\request('yes'))
         {
             $id->pasirinkusieji++;
+            auth()->user()->pasirinkta_tema = $id->id;
             $id->save();
+            auth()->user()->save();
         }
         return redirect('/home');
     }
@@ -46,7 +49,8 @@ class TemaController extends Controller
 
     public function choose(Tema $id)
     {
-        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima');
+        if(auth()->user()->pasirinkta_tema) abort(404, 'Temą jau esate pasirinkę.'); // Galima rinktis tik jei dar nera pasirinktos temos
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
         return view('temos/choose', compact('id'));
     }
 }

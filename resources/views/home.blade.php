@@ -30,7 +30,7 @@
                             <td>{{ $tema->stud_limitas - $tema->pasirinkusieji }}</td>
                             <td>
                                 <a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a>
-                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0)
+                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema)
                                     <a href="/tema/choose/{{$tema->id}}" class="btn btn-primary">Rinktis</a>
                                 @endif
                             </td>
