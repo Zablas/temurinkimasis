@@ -21,14 +21,54 @@ class TemaController extends Controller
     {
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
-            'aprasas' => 'required'
+            'aprasas' => 'required',
+            'stud_limitas' => 'required|numeric'
         ]);
         auth()->user()->temas()->create($duomenys);
+        return redirect('/home');
+    }
+
+    public function accept(Tema $id)
+    {
+        if(auth()->user()->pasirinkta_tema) abort(404, 'Temą jau esate pasirinkę.'); // Galima rinktis tik jei dar nera pasirinktos temos
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
+        if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
+        {
+            $id->pasirinkusieji++;
+            auth()->user()->pasirinkta_tema = $id->id;
+            $id->save();
+            auth()->user()->save();
+        }
         return redirect('/home');
     }
 
     public function show(Tema $id)
     {
         return view('temos/show', compact('id'));
+    }
+
+    public function choose(Tema $id)
+    {
+        if(auth()->user()->pasirinkta_tema) abort(404, 'Temą jau esate pasirinkę.'); // Galima rinktis tik jei dar nera pasirinktos temos
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
+        return view('temos/choose', compact('id'));
+    }
+
+    public function abandon()
+    {
+        $tema = Tema::findOrFail(auth()->user()->pasirinkta_tema);
+        return view('temos/abandon', compact('tema'));
+    }
+
+    public function confirmAbandonment(Tema $id)
+    {
+        if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
+        {
+            $id->pasirinkusieji--;
+            auth()->user()->pasirinkta_tema = null;
+            $id->save();
+            auth()->user()->save();
+        }
+        return redirect('/home');
     }
 }

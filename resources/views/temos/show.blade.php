@@ -11,16 +11,23 @@
                     <form method="GET" action="{{ route('home') }}">
 
                         <div class="form-group row align-items-baseline">
-                            <label for="pavadinimas" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas') }}</label>
+                            <label for="pavadinimas" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas:') }}</label>
                             <div class="col-md-6">
                                 {{$id->pavadinimas}}
                             </div>
                         </div>
 
                         <div class="form-group row align-items-baseline">
-                            <label for="aprasas" class="col-md-4 col-form-label text-md-right">{{ __('Aprašas') }}</label>
+                            <label for="aprasas" class="col-md-4 col-form-label text-md-right">{{ __('Aprašas:') }}</label>
                             <div class="col-md-6">
                                 {{$id->aprasas}}
+                            </div>
+                        </div>
+
+                        <div class="form-group row align-items-baseline">
+                            <label for="aprasas" class="col-md-4 col-form-label text-md-right">{{ __('Užimtos / iš viso:') }}</label>
+                            <div class="col-md-6">
+                                {{$id->pasirinkusieji}} / {{$id->stud_limitas}}
                             </div>
                         </div>
 

@@ -15,7 +15,14 @@
                             <label for="pavadinimas" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pavadinimas" type="text" class="form-control @error('pavadinimas') is-invalid @enderror" name="pavadinimas" value="{{ old('pavadinimas') }}" required autocomplete="pavadinimas" autofocus>
+                                <input id="pavadinimas"
+                                       type="text"
+                                       class="form-control @error('pavadinimas') is-invalid @enderror"
+                                       name="pavadinimas"
+                                       value="{{ old('pavadinimas') }}"
+                                       required
+                                       autocomplete="pavadinimas"
+                                       autofocus>
 
                                 @error('pavadinimas')
                                     <span class="invalid-feedback" role="alert">
@@ -39,6 +46,27 @@
                                           autofocus></textarea>
                                 @error('aprasas')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="stud_limitas" class="col-md-4 col-form-label text-md-right">{{ __('Studentų limitas') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="stud_limitas"
+                                       type="number" min="1"
+                                       class="form-control @error('stud_limitas') is-invalid @enderror"
+                                       name="stud_limitas"
+                                       value="{{ old('stud_limitas') }}"
+                                       required
+                                       autocomplete="stud_limitas"
+                                       autofocus>
+
+                                @error('stud_limitas')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
