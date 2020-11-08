@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TemaController extends Controller
@@ -68,6 +69,37 @@ class TemaController extends Controller
             auth()->user()->pasirinkta_tema = null;
             $id->save();
             auth()->user()->save();
+        }
+        return redirect('/home');
+    }
+
+    public function edit(Tema $id)
+    {
+        return view('temos/edit', compact('id'));
+    }
+
+    public function update(Tema $id)
+    {
+        $duomenys = \request()->validate([
+            'pavadinimas' => 'required',
+            'aprasas' => 'required',
+            'stud_limitas' => 'required|numeric'
+        ]);
+        $id->update($duomenys);
+        return redirect('/home');
+    }
+
+    public function delete(Tema $id)
+    {
+        return view('temos/delete', compact('id'));
+    }
+
+    public function confirmDeletion(Tema $id)
+    {
+        if(\request('yes'))
+        {
+            User::where('pasirinkta_tema', '=', $id->id)->update(array('pasirinkta_tema' => null));
+            $id->delete();
         }
         return redirect('/home');
     }
