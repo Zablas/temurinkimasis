@@ -23,8 +23,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/tema/insert', [App\Http\Controllers\TemaController::class, 'insert']);
 Route::post('/tema/create', [App\Http\Controllers\TemaController::class, 'create'])->name('tema/create');
-Route::put('/tema/accept/{id}', [App\Http\Controllers\TemaController::class, 'accept'])->name('tema/accept/');
 Route::get('/tema/abandon', [App\Http\Controllers\TemaController::class, 'abandon']);
+Route::put('/tema/accept/{id}', [App\Http\Controllers\TemaController::class, 'accept'])->name('tema/accept/');
 Route::put('/tema/abandon/{id}', [App\Http\Controllers\TemaController::class, 'confirmAbandonment'])->name('tema/caband');
-Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
+Route::get('/tema/edit/{id}', [App\Http\Controllers\TemaController::class, 'edit']);
+Route::put('/tema/update/{id}', [App\Http\Controllers\TemaController::class, 'update'])->name('tema/update');
 Route::get('/tema/choose/{id}', [App\Http\Controllers\TemaController::class, 'choose']);
+Route::get('/tema/delete/{id}', [App\Http\Controllers\TemaController::class, 'delete']);
+Route::delete('/tema/confdelete/{id}', [App\Http\Controllers\TemaController::class, 'confirmDeletion'])->name('tema/cdelete');
+Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
