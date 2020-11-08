@@ -21,6 +21,8 @@ class CreateTemasTable extends Migration
             $table->integer('stud_limitas');
             $table->integer('pasirinkusieji')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

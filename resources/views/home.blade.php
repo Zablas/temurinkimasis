@@ -30,7 +30,9 @@
                             <td>{{ $tema->stud_limitas - $tema->pasirinkusieji }}</td>
                             <td>
                                 <a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a>
-                                <a href="/tema/choose/{{$tema->id}}" class="btn btn-primary">Rinktis</a>
+                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0)
+                                    <a href="/tema/choose/{{$tema->id}}" class="btn btn-primary">Rinktis</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

@@ -30,8 +30,8 @@ class TemaController extends Controller
 
     public function accept(Tema $id)
     {
-        $arSutiko = \request('yes') ? true : false;
-        if($arSutiko)
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima');
+        if(\request('yes'))
         {
             $id->pasirinkusieji++;
             $id->save();
@@ -46,6 +46,7 @@ class TemaController extends Controller
 
     public function choose(Tema $id)
     {
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima');
         return view('temos/choose', compact('id'));
     }
 }
