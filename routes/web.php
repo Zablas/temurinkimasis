@@ -40,4 +40,6 @@ Route::get('/siuloma/edit/{id}', [App\Http\Controllers\SiulomaController::class,
 Route::put('/siuloma/update/{id}', [App\Http\Controllers\SiulomaController::class, 'update'])->name('siuloma/update');
 Route::get('/siuloma/delete/{id}', [App\Http\Controllers\SiulomaController::class, 'delete']);
 Route::delete('/siuloma/confdelete/{id}', [App\Http\Controllers\SiulomaController::class, 'confirmDeletion'])->name('siuloma/cdelete');
+Route::get('/siuloma/approve/{id}', [App\Http\Controllers\SiulomaController::class, 'approve']);
+Route::post('/siuloma/confapprove/{id}', [App\Http\Controllers\SiulomaController::class, 'accept'])->name('tema/capprove');
 Route::get('/siuloma/{id}', [App\Http\Controllers\SiulomaController::class, 'show']);
