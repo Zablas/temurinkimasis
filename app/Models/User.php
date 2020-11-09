@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tema::class);
     }
+
+    public function siulomas()
+    {
+        return $this->hasMany(Siuloma::class);
+    }
 }
