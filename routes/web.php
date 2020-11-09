@@ -36,4 +36,6 @@ Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
 Route::get('/siuloma', [App\Http\Controllers\SiulomaController::class, 'index'])->name('siuloma');
 Route::get('/siuloma/insert', [App\Http\Controllers\SiulomaController::class, 'insert']);
 Route::post('/siuloma/create', [App\Http\Controllers\SiulomaController::class, 'create'])->name('siuloma/create');
+Route::get('/siuloma/edit/{id}', [App\Http\Controllers\SiulomaController::class, 'edit']);
+Route::put('/siuloma/update/{id}', [App\Http\Controllers\SiulomaController::class, 'update'])->name('siuloma/update');
 Route::get('/siuloma/{id}', [App\Http\Controllers\SiulomaController::class, 'show']);

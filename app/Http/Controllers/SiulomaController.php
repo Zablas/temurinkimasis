@@ -38,4 +38,20 @@ class SiulomaController extends Controller
     {
         return view('siulomos/show', compact('id'));
     }
+
+    public function edit(Siuloma $id)
+    {
+        return view('siulomos/edit', compact('id'));
+    }
+
+    public function update(Siuloma $id)
+    {
+        $duomenys = \request()->validate([
+            'pavadinimas' => 'required',
+            'aprasas' => 'required',
+            'stud_limitas' => 'required|numeric'
+        ]);
+        $id->update($duomenys);
+        return redirect('/siuloma');
+    }
 }
