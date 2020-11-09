@@ -23,7 +23,7 @@ class TemaController extends Controller
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
-            'stud_limitas' => 'required|numeric'
+            'stud_limitas' => 'required|numeric|min:0'
         ]);
         auth()->user()->temas()->create($duomenys);
         return redirect('/home');
@@ -83,7 +83,7 @@ class TemaController extends Controller
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
-            'stud_limitas' => 'required|numeric'
+            'stud_limitas' => "required|numeric|min:$id->pasirinkusieji"
         ]);
         $id->update($duomenys);
         return redirect('/home');

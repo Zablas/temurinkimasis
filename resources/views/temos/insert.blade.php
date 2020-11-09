@@ -56,7 +56,7 @@
 
                             <div class="col-md-6">
                                 <input id="stud_limitas"
-                                       type="number" min="1"
+                                       type="number" min="0"
                                        class="form-control @error('stud_limitas') is-invalid @enderror"
                                        name="stud_limitas"
                                        value="{{ old('stud_limitas') }}"
