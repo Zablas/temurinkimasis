@@ -33,4 +33,9 @@ class SiulomaController extends Controller
         auth()->user()->siulomas()->create($duomenys);
         return redirect('/siuloma');
     }
+
+    public function show(Siuloma $id)
+    {
+        return view('siulomos/show', compact('id'));
+    }
 }

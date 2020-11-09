@@ -33,6 +33,7 @@ Route::get('/tema/delete/{id}', [App\Http\Controllers\TemaController::class, 'de
 Route::delete('/tema/confdelete/{id}', [App\Http\Controllers\TemaController::class, 'confirmDeletion'])->name('tema/cdelete');
 Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
 
-Route::get('/siuloma', [App\Http\Controllers\SiulomaController::class, 'index']);
+Route::get('/siuloma', [App\Http\Controllers\SiulomaController::class, 'index'])->name('siuloma');
 Route::get('/siuloma/insert', [App\Http\Controllers\SiulomaController::class, 'insert']);
 Route::post('/siuloma/create', [App\Http\Controllers\SiulomaController::class, 'create'])->name('siuloma/create');
+Route::get('/siuloma/{id}', [App\Http\Controllers\SiulomaController::class, 'show']);

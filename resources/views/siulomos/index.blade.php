@@ -31,7 +31,7 @@
                             <td>{{ \App\Models\User::find($siuloma->user_id)->name }}</td>
                             <td>{{ $siuloma->stud_limitas }}</td>
                             <td>
-                                <a href="/tema/{{$siuloma->id}}" class="btn btn-primary">Detaliau</a>
+                                <a href="/siuloma/{{$siuloma->id}}" class="btn btn-primary">Detaliau</a>
                                 <a href="/tema/edit/{{$siuloma->id}}" class="btn btn-primary">Redaguoti</a>
                                 <a href="/tema/delete/{{$siuloma->id}}" class="btn btn-danger">Šalinti</a>
 {{--                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema)--}}
