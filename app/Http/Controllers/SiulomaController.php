@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siuloma;
+use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,26 @@ class SiulomaController extends Controller
     {
         $siulomos = Siuloma::all();
         return view('siulomos/index', compact('siulomos'));
+    }
+
+    public function approve(Siuloma $id)
+    {
+        return view('siulomos/approve', compact('id'));
+    }
+
+    public function accept(Siuloma $id)
+    {
+        if(\request('yes'))
+        {
+            $tema = new Tema();
+            $tema->pavadinimas = $id->pavadinimas;
+            $tema->aprasas = $id->aprasas;
+            $tema->stud_limitas = $id->stud_limitas;
+            $tema->user_id = $id->user_id;
+            $tema->save();
+            $id->delete();
+        }
+        return redirect('/siuloma');
     }
 
     public function insert()
