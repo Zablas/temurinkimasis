@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siuloma;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SiulomaController extends Controller
@@ -31,6 +32,38 @@ class SiulomaController extends Controller
             'stud_limitas' => 'required|numeric'
         ]);
         auth()->user()->siulomas()->create($duomenys);
+        return redirect('/siuloma');
+    }
+
+    public function show(Siuloma $id)
+    {
+        return view('siulomos/show', compact('id'));
+    }
+
+    public function edit(Siuloma $id)
+    {
+        return view('siulomos/edit', compact('id'));
+    }
+
+    public function update(Siuloma $id)
+    {
+        $duomenys = \request()->validate([
+            'pavadinimas' => 'required',
+            'aprasas' => 'required',
+            'stud_limitas' => 'required|numeric'
+        ]);
+        $id->update($duomenys);
+        return redirect('/siuloma');
+    }
+
+    public function delete(Siuloma $id)
+    {
+        return view('siulomos/delete', compact('id'));
+    }
+
+    public function confirmDeletion(Siuloma $id)
+    {
+        if(\request('yes')) $id->delete();
         return redirect('/siuloma');
     }
 }
