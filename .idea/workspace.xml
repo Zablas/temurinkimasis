@@ -25,11 +25,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161b95f1-6592-4d97-a489-51a9e0d5c153" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/siulomos/delete.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TemaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TemaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/siulomos/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/siulomos/insert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/insert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/temos/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/temos/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/temos/insert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/temos/insert.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +201,7 @@
       <updated>1604746388190</updated>
       <workItem from="1604746393330" duration="21709000" />
       <workItem from="1604832218940" duration="11127000" />
-      <workItem from="1604927030668" duration="3440000" />
+      <workItem from="1604927030668" duration="4940000" />
     </task>
     <servers />
   </component>
