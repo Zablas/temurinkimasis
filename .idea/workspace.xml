@@ -20,23 +20,20 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161b95f1-6592-4d97-a489-51a9e0d5c153" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Siuloma.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_150736_create_siulomas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_2020_11_09_15_04.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/siulomos/insert.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Siuloma.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Siuloma.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_08_150736_create_siulomas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_150736_create_siulomas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,6 +183,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Laravel projektai\temurinkimasis\resources\views\siulomos" />
       <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\siulomos" />
       <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\temos" />
     </key>
@@ -206,6 +204,7 @@
       <updated>1604746388190</updated>
       <workItem from="1604746393330" duration="21709000" />
       <workItem from="1604832218940" duration="11127000" />
+      <workItem from="1604927030668" duration="1683000" />
     </task>
     <servers />
   </component>
@@ -222,18 +221,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604928579775">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604928579775" />
     <state x="707" y="236" key="SettingsEditor" timestamp="1604832280202">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="236" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604832280202" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604761375286">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="415" y="147" width="672" height="444" key="search.everywhere.popup" timestamp="1604928535466">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="415" y="147" width="672" height="444" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1604928535466" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604761375286" />
   </component>
 </project>

@@ -34,3 +34,5 @@ Route::delete('/tema/confdelete/{id}', [App\Http\Controllers\TemaController::cla
 Route::get('/tema/{id}', [App\Http\Controllers\TemaController::class, 'show']);
 
 Route::get('/siuloma', [App\Http\Controllers\SiulomaController::class, 'index']);
+Route::get('/siuloma/insert', [App\Http\Controllers\SiulomaController::class, 'insert']);
+Route::post('/siuloma/create', [App\Http\Controllers\SiulomaController::class, 'create'])->name('siuloma/create');

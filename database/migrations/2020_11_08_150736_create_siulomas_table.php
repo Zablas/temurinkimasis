@@ -15,7 +15,14 @@ class CreateSiulomasTable extends Migration
     {
         Schema::create('siulomas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('pavadinimas');
+            $table->text('aprasas');
+            $table->integer('stud_limitas');
+            $table->integer('pasirinkusieji')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

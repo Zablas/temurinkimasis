@@ -6,12 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <span class="align-items-center card-header d-flex justify-content-between">
-                    {{ __('Temų sąrašas') }}
+                    {{ __('Siūlomų temų sąrašas') }}
                     <div class="float-right">
-                        @if(auth()->user()->pasirinkta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
-                            <a href="/tema/abandon" class="btn btn-primary">Atsisakyti temos</a>
-                        @endif
-                        <a href="/tema/insert" class="btn btn-primary">Pridėti</a>
+                        <a href="/siuloma/insert" class="btn btn-primary">Siūlyti</a>
                     </div>
                 </span>
 
@@ -25,24 +22,24 @@
                     <tr>
                         <th style="width: 25%">Pavadinimas</th>
                         <th style="width: 25%">Autorius</th>
-                        <th style="width: 10%">Laisvos vietos</th>
+                        <th style="width: 10%">Vietų limitas</th>
                         <th style="width: 40%">Veiksmai</th>
                     </tr>
-{{--                    @foreach($temos as $tema)--}}
-{{--                        <tr>--}}
-{{--                            <td>{{$tema->pavadinimas}}</td>--}}
-{{--                            <td>{{ \App\Models\User::find($tema->user_id)->name }}</td>--}}
-{{--                            <td>{{ $tema->stud_limitas - $tema->pasirinkusieji }}</td>--}}
-{{--                            <td>--}}
-{{--                                <a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a>--}}
-{{--                                <a href="/tema/edit/{{$tema->id}}" class="btn btn-primary">Redaguoti</a>--}}
-{{--                                <a href="/tema/delete/{{$tema->id}}" class="btn btn-danger">Šalinti</a>--}}
+                    @foreach($siulomos as $siuloma)
+                        <tr>
+                            <td>{{$siuloma->pavadinimas}}</td>
+                            <td>{{ \App\Models\User::find($siuloma->user_id)->name }}</td>
+                            <td>{{ $siuloma->stud_limitas }}</td>
+                            <td>
+                                <a href="/tema/{{$siuloma->id}}" class="btn btn-primary">Detaliau</a>
+                                <a href="/tema/edit/{{$siuloma->id}}" class="btn btn-primary">Redaguoti</a>
+                                <a href="/tema/delete/{{$siuloma->id}}" class="btn btn-danger">Šalinti</a>
 {{--                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema)--}}
-{{--                                    <a href="/tema/choose/{{$tema->id}}" class="btn btn-success">Rinktis</a>  --}}{{-- Galima rinktis tik atitikus salygas --}}
+{{--                                    <a href="/tema/choose/{{$tema->id}}" class="btn btn-success">Rinktis</a>   Galima rinktis tik atitikus salygas--}}
 {{--                                @endif--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
+                            </td>
+                        </tr>
+                    @endforeach
                 </table>
                 </div>
             </div>
