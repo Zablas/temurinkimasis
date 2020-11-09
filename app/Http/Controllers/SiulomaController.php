@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siuloma;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SiulomaController extends Controller
@@ -52,6 +53,17 @@ class SiulomaController extends Controller
             'stud_limitas' => 'required|numeric'
         ]);
         $id->update($duomenys);
+        return redirect('/siuloma');
+    }
+
+    public function delete(Siuloma $id)
+    {
+        return view('siulomos/delete', compact('id'));
+    }
+
+    public function confirmDeletion(Siuloma $id)
+    {
+        if(\request('yes')) $id->delete();
         return redirect('/siuloma');
     }
 }

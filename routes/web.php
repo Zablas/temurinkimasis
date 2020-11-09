@@ -38,4 +38,6 @@ Route::get('/siuloma/insert', [App\Http\Controllers\SiulomaController::class, 'i
 Route::post('/siuloma/create', [App\Http\Controllers\SiulomaController::class, 'create'])->name('siuloma/create');
 Route::get('/siuloma/edit/{id}', [App\Http\Controllers\SiulomaController::class, 'edit']);
 Route::put('/siuloma/update/{id}', [App\Http\Controllers\SiulomaController::class, 'update'])->name('siuloma/update');
+Route::get('/siuloma/delete/{id}', [App\Http\Controllers\SiulomaController::class, 'delete']);
+Route::delete('/siuloma/confdelete/{id}', [App\Http\Controllers\SiulomaController::class, 'confirmDeletion'])->name('siuloma/cdelete');
 Route::get('/siuloma/{id}', [App\Http\Controllers\SiulomaController::class, 'show']);

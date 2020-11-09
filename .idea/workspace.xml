@@ -25,7 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161b95f1-6592-4d97-a489-51a9e0d5c153" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/siulomos/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/siulomos/delete.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" afterDir="false" />
@@ -199,7 +199,7 @@
       <updated>1604746388190</updated>
       <workItem from="1604746393330" duration="21709000" />
       <workItem from="1604832218940" duration="11127000" />
-      <workItem from="1604927030668" duration="2936000" />
+      <workItem from="1604927030668" duration="3440000" />
     </task>
     <servers />
   </component>
@@ -222,10 +222,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604930010513">
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604930456048">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604930010513" />
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604930456048" />
     <state x="707" y="236" key="SettingsEditor" timestamp="1604832280202">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

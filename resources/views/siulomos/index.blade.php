@@ -33,7 +33,7 @@
                             <td>
                                 <a href="/siuloma/{{$siuloma->id}}" class="btn btn-primary">Detaliau</a>
                                 <a href="/siuloma/edit/{{$siuloma->id}}" class="btn btn-primary">Redaguoti</a>
-                                <a href="/tema/delete/{{$siuloma->id}}" class="btn btn-danger">Šalinti</a>
+                                <a href="/siuloma/delete/{{$siuloma->id}}" class="btn btn-danger">Šalinti</a>
 {{--                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema)--}}
 {{--                                    <a href="/tema/choose/{{$tema->id}}" class="btn btn-success">Rinktis</a>   Galima rinktis tik atitikus salygas--}}
 {{--                                @endif--}}
