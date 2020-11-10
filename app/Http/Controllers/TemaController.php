@@ -20,6 +20,7 @@ class TemaController extends Controller
 
     public function create()
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
@@ -75,11 +76,13 @@ class TemaController extends Controller
 
     public function edit(Tema $id)
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         return view('temos/edit', compact('id'));
     }
 
     public function update(Tema $id)
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
@@ -91,11 +94,13 @@ class TemaController extends Controller
 
     public function delete(Tema $id)
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         return view('temos/delete', compact('id'));
     }
 
     public function confirmDeletion(Tema $id)
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         if(\request('yes'))
         {
             User::where('pasirinkta_tema', '=', $id->id)->update(array('pasirinkta_tema' => null));
