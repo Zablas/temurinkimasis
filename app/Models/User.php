@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Siuloma::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->role == 'admin';
+    }
 }

@@ -22,11 +22,13 @@ class SiulomaController extends Controller
 
     public function approve(Siuloma $id)
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         return view('siulomos/approve', compact('id'));
     }
 
     public function accept(Siuloma $id)
     {
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
         if(\request('yes'))
         {
             $tema = new Tema();
@@ -63,11 +65,13 @@ class SiulomaController extends Controller
 
     public function edit(Siuloma $id)
     {
+        if(!auth()->user()->isAdmin() && auth()->user()->id != $id->user_id) abort(404, 'Nesate administratorius.');
         return view('siulomos/edit', compact('id'));
     }
 
     public function update(Siuloma $id)
     {
+        if(!auth()->user()->isAdmin() && auth()->user()->id != $id->user_id) abort(404, 'Nesate administratorius.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
@@ -79,11 +83,13 @@ class SiulomaController extends Controller
 
     public function delete(Siuloma $id)
     {
+        if(!auth()->user()->isAdmin() && auth()->user()->id != $id->user_id) abort(404, 'Nesate administratorius.');
         return view('siulomos/delete', compact('id'));
     }
 
     public function confirmDeletion(Siuloma $id)
     {
+        if(!auth()->user()->isAdmin() && auth()->user()->id != $id->user_id) abort(404, 'Nesate administratorius.');
         if(\request('yes')) $id->delete();
         return redirect('/siuloma');
     }
