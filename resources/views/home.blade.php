@@ -7,6 +7,11 @@
             <div class="card">
                 <span class="align-items-center card-header d-flex justify-content-between">
                     {{ __('Temų sąrašas') }}
+                    <div class="text-center">
+                        @if(auth()->user()->pasirinkta_tema)
+                            Pasirinkta tema: {{ \App\Models\Tema::find(auth()->user()->pasirinkta_tema)->pavadinimas }}
+                        @endif
+                    </div>
                     <div class="float-right">
                         @if(auth()->user()->pasirinkta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
                             <a href="/tema/abandon" class="btn btn-primary">Atsisakyti temos</a>
