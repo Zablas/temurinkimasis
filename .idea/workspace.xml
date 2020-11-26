@@ -26,10 +26,13 @@
   <component name="ChangeListManager">
     <list default="true" id="161b95f1-6592-4d97-a489-51a9e0d5c153" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiulomaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TemaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TemaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Tema.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tema.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_07_133341_create_temas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_07_133341_create_temas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/siulomos/approve.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/siulomos/approve.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/temos/insert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/temos/insert.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +205,7 @@
       <workItem from="1604832218940" duration="11127000" />
       <workItem from="1604927030668" duration="7156000" />
       <workItem from="1605024282269" duration="3449000" />
-      <workItem from="1606405769458" duration="1637000" />
+      <workItem from="1606405769458" duration="6520000" />
     </task>
     <servers />
   </component>
@@ -225,10 +228,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604930456048">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="557" y="145" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606413227293">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604930456048" />
+    <state x="557" y="145" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606413227293" />
     <state x="707" y="236" key="SettingsEditor" timestamp="1604832280202">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -16,6 +16,14 @@
                             <div class="col-md-6">
                                 {{$id->pavadinimas}}
                             </div>
+                            <label for="destytojas" class="col-md-4 col-form-label text-md-right">{{ __('Dėstytojas:') }}</label>
+                            <div class="col-md-6">
+                                <select name="destytojas" id="destytojas">
+                                    @foreach($destytojai as $destytojas)
+                                        <option value="{{ $destytojas->id }}">{{ $destytojas->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group row mb-0 align-items-baseline">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TemaController extends Controller
 {
@@ -15,7 +16,9 @@ class TemaController extends Controller
 
     public function insert()
     {
-        return view('temos/insert');
+        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        $destytojai = DB::table('users')->where('role', 'lecturer')->get();
+        return view('temos/insert', compact('destytojai'));
     }
 
     public function create()
@@ -24,7 +27,8 @@ class TemaController extends Controller
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
-            'stud_limitas' => 'required|numeric|min:0'
+            'stud_limitas' => 'required|numeric|min:0',
+            'lecturer_id' => 'required'
         ]);
         auth()->user()->temas()->create($duomenys);
         return redirect('/home');

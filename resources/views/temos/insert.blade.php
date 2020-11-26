@@ -52,6 +52,23 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="lecturer_id" class="col-md-4 col-form-label text-md-right">{{ __('Dėstytojas') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="lecturer_id" id="lecturer_id">
+                                    @foreach($destytojai as $destytojas)
+                                        <option value="{{ $destytojas->id }}">{{ $destytojas->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('aprasas')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="stud_limitas" class="col-md-4 col-form-label text-md-right">{{ __('Studentų limitas') }}</label>
 
                             <div class="col-md-6">
