@@ -52,7 +52,7 @@
                                 </li>
                             @endif
                         @else
-                            <a class="nav-link" href="/home" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Temų sąrašas</a>
+                            <a class="nav-link" href="/home" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Patvirtintų temų sąrašas</a>
                             <a class="nav-link" href="/siuloma" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Siūlomų temų sąrašas</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
