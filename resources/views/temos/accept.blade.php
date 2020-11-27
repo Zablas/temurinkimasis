@@ -5,24 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Ar tikrai norite patvirtinti šią temą?') }}</div>
+                <div class="card-header">{{ __('Ar tikrai norite priimti šį studentą?') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tema/capprove', $id) }}">
+                    <form method="POST" action="{{ route('tema/pending/accept', $id) }}">
                         @csrf
+                        @method('PUT')
 
                         <div class="form-group row align-items-baseline">
-                            <label for="pavadinimas" class="col-md-4 col-form-label text-md-right">{{ __('Pavadinimas:') }}</label>
+                            <label for="vardas" class="col-md-4 col-form-label text-md-right">{{ __('Vardas:') }}</label>
                             <div class="col-md-6">
-                                {{$id->pavadinimas}}
+                                {{$id->name}}
                             </div>
-                            <label for="destytojas" class="col-md-4 col-form-label text-md-right">{{ __('Dėstytojas:') }}</label>
+                        </div>
+
+                        <div class="form-group row align-items-baseline">
+                            <label for="tema" class="col-md-4 col-form-label text-md-right">{{ __('Tena:') }}</label>
                             <div class="col-md-6">
-                                <select name="destytojas" id="destytojas">
-                                    @foreach($destytojai as $destytojas)
-                                        <option value="{{ $destytojas->id }}">{{ $destytojas->name }}</option>
-                                    @endforeach
-                                </select>
+                                {{ \App\Models\Tema::find($id->pasirinkta_tema)->pavadinimas }}
                             </div>
                         </div>
 

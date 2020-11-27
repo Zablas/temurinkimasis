@@ -13,8 +13,10 @@
                         @endif
                     </div>
                     <div class="float-right">
-                        @if(auth()->user()->pasirinkta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
+                        @if(auth()->user()->pasirinkta_tema && !auth()->user()->ar_patvirtinta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
                             <a href="/tema/abandon" class="btn btn-primary">Atsisakyti temos</a>
+                        @elseif(auth()->user()->pasirinkta_tema && auth()->user()->ar_patvirtinta_tema)
+                            Pasirinkimas patvirtintas
                         @endif
                         @if(auth()->user()->isAdmin())
                             <a href="/tema/insert" class="btn btn-primary">Pridėti</a>
@@ -30,15 +32,17 @@
                     @endif
                 <table class="col-md-12" border="1">
                     <tr>
-                        <th style="width: 25%">Pavadinimas</th>
-                        <th style="width: 25%">Autorius</th>
-                        <th style="width: 10%">Laisvos vietos</th>
+                        <th style="width: 15%">Pavadinimas</th>
+                        <th style="width: 15%">Autorius</th>
+                        <th style="width: 15%">Dėstytojas</th>
+                        <th style="width: 15%">Laisvos vietos</th>
                         <th style="width: 40%">Veiksmai</th>
                     </tr>
                     @foreach($temos as $tema)
                         <tr>
                             <td>{{$tema->pavadinimas}}</td>
                             <td>{{ \App\Models\User::find($tema->user_id)->name }}</td>
+                            <td>{{ \App\Models\User::find($tema->lecturer_id)->name }}</td>
                             <td>{{ $tema->stud_limitas - $tema->pasirinkusieji }}</td>
                             <td>
                                 <a href="/tema/{{$tema->id}}" class="btn btn-primary">Detaliau</a>

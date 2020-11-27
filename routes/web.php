@@ -21,6 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/tema/pending', [App\Http\Controllers\TemaController::class, 'students'])->name('tema/pending');
+Route::put('/tema/pending/accept/{id}/confirm', [App\Http\Controllers\TemaController::class, 'confirmAcceptStudent'])->name('tema/pending/accept');
+Route::put('/tema/pending/deny/{id}/confirm', [App\Http\Controllers\TemaController::class, 'confirmDenyStudent'])->name('tema/pending/deny');
+Route::get('/tema/pending/accept/{id}', [App\Http\Controllers\TemaController::class, 'acceptStudent']);
+Route::get('/tema/pending/deny/{id}', [App\Http\Controllers\TemaController::class, 'denyStudent']);;
 Route::get('/tema/insert', [App\Http\Controllers\TemaController::class, 'insert']);
 Route::post('/tema/create', [App\Http\Controllers\TemaController::class, 'create'])->name('tema/create');
 Route::get('/tema/abandon', [App\Http\Controllers\TemaController::class, 'abandon']);

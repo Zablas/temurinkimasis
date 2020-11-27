@@ -52,6 +52,9 @@
                                 </li>
                             @endif
                         @else
+                            @if(!auth()->user()->isStudent())
+                                <a class="nav-link" href="/tema/pending" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Užsiregistravę studentai</a>
+                            @endif
                             <a class="nav-link" href="/home" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Patvirtintų temų sąrašas</a>
                             <a class="nav-link" href="/siuloma" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Siūlomų temų sąrašas</a>
                             <li class="nav-item dropdown">

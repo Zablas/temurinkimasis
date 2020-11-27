@@ -16,6 +16,7 @@ class CreateTemasTable extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('lecturer_id')->nullable();
             $table->string('pavadinimas');
             $table->text('aprasas');
             $table->integer('stud_limitas');
