@@ -14,6 +14,14 @@ class TemaController extends Controller
         $this->middleware('auth');
     }
 
+    public function students()
+    {
+        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        $studentai = DB::table('users')->join('temas', 'users.pasirinkta_tema', '=', 'temas.id')
+                                            ->where('temas.lecturer_id', auth()->user()->id)->select('users.*')->get();
+        return view('temos/pending', compact('studentai'));
+    }
+
     public function insert()
     {
         if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');

@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/tema/pending', [App\Http\Controllers\TemaController::class, 'students'])->name('tema/pending');
 Route::get('/tema/insert', [App\Http\Controllers\TemaController::class, 'insert']);
 Route::post('/tema/create', [App\Http\Controllers\TemaController::class, 'create'])->name('tema/create');
 Route::get('/tema/abandon', [App\Http\Controllers\TemaController::class, 'abandon']);
