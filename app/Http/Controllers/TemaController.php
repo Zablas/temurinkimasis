@@ -16,7 +16,7 @@ class TemaController extends Controller
 
     public function students()
     {
-        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(auth()->user()->isStudent()) abort(403, 'Nesate administratorius.');
         $studentai = DB::table('users')->join('temas', 'users.pasirinkta_tema', '=', 'temas.id')
                                             ->where([
                                                 ['temas.lecturer_id', '=' , auth()->user()->id],
@@ -27,19 +27,19 @@ class TemaController extends Controller
 
     public function acceptStudent(User $id)
     {
-        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(auth()->user()->isStudent()) abort(403, 'Nesate administratorius.');
         return view('temos/accept', compact('id'));
     }
 
     public function denyStudent(User $id)
     {
-        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(auth()->user()->isStudent()) abort(403, 'Nesate administratorius.');
         return view('temos/deny', compact('id'));
     }
 
     public function confirmAcceptStudent(User $id)
     {
-        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(auth()->user()->isStudent()) abort(403, 'Nesate administratorius.');
         if(\request('yes'))
         {
             $id->ar_patvirtinta_tema = true;
@@ -50,7 +50,7 @@ class TemaController extends Controller
 
     public function confirmDenyStudent(User $id)
     {
-        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(auth()->user()->isStudent()) abort(403, 'Nesate administratorius.');
         if(\request('yes'))
         {
             $tema = Tema::find($id->pasirinkta_tema);
@@ -64,14 +64,14 @@ class TemaController extends Controller
 
     public function insert()
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         $destytojai = DB::table('users')->where('role', 'lecturer')->get();
         return view('temos/insert', compact('destytojai'));
     }
 
     public function create()
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
@@ -84,8 +84,8 @@ class TemaController extends Controller
 
     public function accept(Tema $id)
     {
-        if(auth()->user()->pasirinkta_tema || auth()->user()->isLecturer()) abort(404, 'Temos rinktis negalite.'); // Galima rinktis tik jei dar nera pasirinktos temos
-        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
+        if(auth()->user()->pasirinkta_tema || auth()->user()->isLecturer()) abort(403, 'Temos rinktis negalite.'); // Galima rinktis tik jei dar nera pasirinktos temos
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(403, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
         if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
         {
             $id->pasirinkusieji++;
@@ -103,8 +103,8 @@ class TemaController extends Controller
 
     public function choose(Tema $id)
     {
-        if(auth()->user()->pasirinkta_tema || auth()->user()->isLecturer()) abort(404, 'Temos rinktis negalite.'); // Galima rinktis tik jei dar nera pasirinktos temos
-        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(404, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
+        if(auth()->user()->pasirinkta_tema || auth()->user()->isLecturer()) abort(403, 'Temos rinktis negalite.'); // Galima rinktis tik jei dar nera pasirinktos temos
+        if($id->stud_limitas - $id->pasirinkusieji <= 0) abort(403, 'Temos pasirinkit nebegalima.'); // Galima rinktis tik jei dar yra laisvu vietu
         return view('temos/choose', compact('id'));
     }
 
@@ -116,7 +116,7 @@ class TemaController extends Controller
 
     public function confirmAbandonment(Tema $id)
     {
-        if(auth()->user()->ar_patvirtinta_tema) abort(404, 'Atsisakyti nebegalima.'); // Jei studentas patvirtintas destytoja, atsisakyti nebegalima
+        if(auth()->user()->ar_patvirtinta_tema) abort(403, 'Atsisakyti nebegalima.'); // Jei studentas patvirtintas destytoja, atsisakyti nebegalima
         if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
         {
             $id->pasirinkusieji--;
@@ -129,13 +129,13 @@ class TemaController extends Controller
 
     public function edit(Tema $id)
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         return view('temos/edit', compact('id'));
     }
 
     public function update(Tema $id)
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
@@ -147,13 +147,13 @@ class TemaController extends Controller
 
     public function delete(Tema $id)
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         return view('temos/delete', compact('id'));
     }
 
     public function confirmDeletion(Tema $id)
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         if(\request('yes'))
         {
             User::where('pasirinkta_tema', '=', $id->id)->update(array('pasirinkta_tema' => null));

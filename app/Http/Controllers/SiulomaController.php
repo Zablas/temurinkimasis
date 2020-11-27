@@ -23,14 +23,14 @@ class SiulomaController extends Controller
 
     public function approve(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         $destytojai = DB::table('users')->where('role', 'lecturer')->get();
         return view('siulomos/approve', compact('id', 'destytojai'));
     }
 
     public function accept(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin()) abort(404, 'Nesate administratorius.');
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         if(\request('yes'))
         {
             $tema = new Tema();
@@ -62,19 +62,19 @@ class SiulomaController extends Controller
 
     public function show(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(404, 'Negalite to daryti.');
+        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(403, 'Negalite to daryti.');
         return view('siulomos/show', compact('id'));
     }
 
     public function edit(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(404, 'Negalite to daryti.');
+        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(403, 'Negalite to daryti.');
         return view('siulomos/edit', compact('id'));
     }
 
     public function update(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(404, 'Negalite to daryti.');
+        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(403, 'Negalite to daryti.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required'
@@ -85,13 +85,13 @@ class SiulomaController extends Controller
 
     public function delete(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(404, 'Negalite to daryti.');
+        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(403, 'Negalite to daryti.');
         return view('siulomos/delete', compact('id'));
     }
 
     public function confirmDeletion(Siuloma $id)
     {
-        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(404, 'Negalite to daryti.');
+        if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(403, 'Negalite to daryti.');
         if(\request('yes')) $id->delete();
         return redirect('/siuloma');
     }
