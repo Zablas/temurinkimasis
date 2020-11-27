@@ -13,8 +13,10 @@
                         @endif
                     </div>
                     <div class="float-right">
-                        @if(auth()->user()->pasirinkta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
+                        @if(auth()->user()->pasirinkta_tema && !auth()->user()->ar_patvirtinta_tema) {{-- Jei studentas turi tema, tik tada gali jos atsisakyti --}}
                             <a href="/tema/abandon" class="btn btn-primary">Atsisakyti temos</a>
+                        @elseif(auth()->user()->pasirinkta_tema && auth()->user()->ar_patvirtinta_tema)
+                            Pasirinkimas patvirtintas
                         @endif
                         @if(auth()->user()->isAdmin())
                             <a href="/tema/insert" class="btn btn-primary">Pridėti</a>

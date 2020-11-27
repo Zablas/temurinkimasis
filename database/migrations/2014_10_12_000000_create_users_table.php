@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('pasirinkta_tema')->nullable();
+            $table->boolean('ar_patvirtinta_tema')->default(false);
             $table->enum('role', ['student', 'lecturer' ,'admin'])->default('student');
             $table->rememberToken();
             $table->timestamps();

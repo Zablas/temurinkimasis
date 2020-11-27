@@ -18,8 +18,48 @@ class TemaController extends Controller
     {
         if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
         $studentai = DB::table('users')->join('temas', 'users.pasirinkta_tema', '=', 'temas.id')
-                                            ->where('temas.lecturer_id', auth()->user()->id)->select('users.*')->get();
+                                            ->where([
+                                                ['temas.lecturer_id', '=' , auth()->user()->id],
+                                                ['users.ar_patvirtinta_tema', '=', false]
+                                            ])->select('users.*')->get();
         return view('temos/pending', compact('studentai'));
+    }
+
+    public function acceptStudent(User $id)
+    {
+        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        return view('temos/accept', compact('id'));
+    }
+
+    public function denyStudent(User $id)
+    {
+        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        return view('temos/deny', compact('id'));
+    }
+
+    public function confirmAcceptStudent(User $id)
+    {
+        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(\request('yes'))
+        {
+            $id->ar_patvirtinta_tema = true;
+            $id->save();
+        }
+        return redirect('/tema/pending');
+    }
+
+    public function confirmDenyStudent(User $id)
+    {
+        if(auth()->user()->isStudent()) abort(404, 'Nesate administratorius.');
+        if(\request('yes'))
+        {
+            $tema = Tema::find($id->pasirinkta_tema);
+            $tema->pasirinkusieji--;
+            $tema->save();
+            $id->pasirinkta_tema = null;
+            $id->save();
+        }
+        return redirect('/tema/pending');
     }
 
     public function insert()
@@ -76,6 +116,7 @@ class TemaController extends Controller
 
     public function confirmAbandonment(Tema $id)
     {
+        if(auth()->user()->ar_patvirtinta_tema) abort(404, 'Atsisakyti nebegalima.'); // Jei studentas patvirtintas destytoja, atsisakyti nebegalima
         if(\request('yes')) // Jei buvo paspaustas "Taip" mygtukas
         {
             $id->pasirinkusieji--;
