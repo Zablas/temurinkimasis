@@ -20,17 +20,15 @@
                         @endif
                         <table class="col-md-12" border="1">
                             <tr>
-                                <th style="width: 25%">Pavadinimas</th>
-                                <th style="width: 25%">Autorius</th>
-                                <th style="width: 10%">Vietų limitas</th>
-                                <th style="width: 40%">Veiksmai</th>
+                                <th style="width: 33%">Pavadinimas</th>
+                                <th style="width: 33%">Autorius</th>
+                                <th style="width: 33%">Veiksmai</th>
                             </tr>
                             @foreach($siulomos as $siuloma)
                                 @if(auth()->user()->isAdmin() || $siuloma->user_id == auth()->user()->id)
                                     <tr>
                                         <td>{{$siuloma->pavadinimas}}</td>
                                         <td>{{ \App\Models\User::find($siuloma->user_id)->name }}</td>
-                                        <td>{{ $siuloma->stud_limitas }}</td>
                                         <td>
                                             <a href="/siuloma/{{$siuloma->id}}" class="btn btn-primary">Detaliau</a>
                                             @if(auth()->user()->isAdmin() || $siuloma->user_id == auth()->user()->id)

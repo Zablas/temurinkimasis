@@ -18,7 +18,7 @@ class CreateSiulomasTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('pavadinimas');
             $table->text('aprasas');
-            $table->integer('stud_limitas');
+            $table->integer('stud_limitas')->nullable();
             $table->integer('pasirinkusieji')->default(0);
             $table->timestamps();
 
