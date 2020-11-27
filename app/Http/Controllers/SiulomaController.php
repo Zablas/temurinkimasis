@@ -36,7 +36,7 @@ class SiulomaController extends Controller
             $tema = new Tema();
             $tema->pavadinimas = $id->pavadinimas;
             $tema->aprasas = $id->aprasas;
-            $tema->stud_limitas = $id->stud_limitas;
+            $tema->stud_limitas = \request('stud_limitas');
             $tema->user_id = $id->user_id;
             $tema->lecturer_id = \request('destytojas');
             $tema->save();
@@ -54,8 +54,7 @@ class SiulomaController extends Controller
     {
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
-            'aprasas' => 'required',
-            'stud_limitas' => 'required|numeric|min:0'
+            'aprasas' => 'required'
         ]);
         auth()->user()->siulomas()->create($duomenys);
         return redirect('/siuloma');
@@ -78,8 +77,7 @@ class SiulomaController extends Controller
         if(!auth()->user()->isAdmin() && $id->user_id != auth()->user()->id) abort(404, 'Negalite to daryti.');
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
-            'aprasas' => 'required',
-            'stud_limitas' => "required|numeric|min:$id->pasirinkusieji"
+            'aprasas' => 'required'
         ]);
         $id->update($duomenys);
         return redirect('/siuloma');

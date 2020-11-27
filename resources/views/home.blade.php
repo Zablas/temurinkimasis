@@ -52,7 +52,7 @@
                                 @if(auth()->user()->isAdmin())
                                     <a href="/tema/delete/{{$tema->id}}" class="btn btn-danger">Šalinti</a>
                                 @endif
-                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema)
+                                @if($tema->stud_limitas - $tema->pasirinkusieji > 0 && !auth()->user()->pasirinkta_tema && !auth()->user()->isLecturer())
                                     <a href="/tema/choose/{{$tema->id}}" class="btn btn-success">Rinktis</a>  {{-- Galima rinktis tik atitikus salygas --}}
                                 @endif
                             </td>
