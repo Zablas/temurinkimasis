@@ -156,7 +156,7 @@ class TemaController extends Controller
         if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         if(\request('yes'))
         {
-            User::where('pasirinkta_tema', '=', $id->id)->update(array('pasirinkta_tema' => null));
+            User::where('pasirinkta_tema', '=', $id->id)->update(array('pasirinkta_tema' => null, 'ar_patvirtinta_tema' => false));
             $id->delete();
         }
         return redirect('/home');
