@@ -23,6 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/userlist', [App\Http\Controllers\HomeController::class, 'userList'])->name('userList');
 Route::get('/userlist/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit']);
 Route::put('/userlist/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('userlist/update');
+Route::get('/userlist/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete']);
+Route::delete('/userlist/confdelete/{id}', [App\Http\Controllers\HomeController::class, 'confirmDeletion'])->name('userlist/cdelete');
 Route::get('/userlist/{id}', [App\Http\Controllers\HomeController::class, 'show']);
 
 Route::get('/tema/pending', [App\Http\Controllers\TemaController::class, 'students'])->name('tema/pending');

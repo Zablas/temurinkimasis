@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Detaliau apie temą') }}</div>
+                <div class="card-header">{{ __('Detaliau apie vartotoją') }}</div>
 
                 <div class="card-body">
                     <form method="GET" action="{{ route('userList') }}">

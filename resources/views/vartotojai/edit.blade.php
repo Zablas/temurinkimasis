@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Sukurti naują temą') }}</div>
+                <div class="card-header">{{ __('Redaguoti vartotoją') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('userlist/update', $id) }}">
