@@ -52,6 +52,9 @@
                                 </li>
                             @endif
                         @else
+                            @if(auth()->user()->isAdmin())
+                                <a class="nav-link" href="/userlist" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Vartotojų valdymas</a>
+                            @endif
                             @if(!auth()->user()->isStudent())
                                 <a class="nav-link" href="/tema/pending" role="button" aria-haspopup="true" aria-expanded="false" v-pre>Užsiregistravę studentai</a>
                             @endif

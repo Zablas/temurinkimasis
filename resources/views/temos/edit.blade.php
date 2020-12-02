@@ -73,6 +73,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="lecturer_id" class="col-md-4 col-form-label text-md-right">{{ __('Dėstyotojas') }}</label>
+                                <select name="lecturer_id" id="lecturer_id">
+                                    <option value="{{$destytojas->id}}">{{ $destytojas->name }}</option>
+                                    @foreach($destytojai as $dest)
+                                        <option value="{{$dest->id}}">{{ $dest->name }}</option>
+                                    @endforeach
+                                </select>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
