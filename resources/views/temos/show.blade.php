@@ -18,6 +18,13 @@
                         </div>
 
                         <div class="form-group row align-items-baseline">
+                            <label for="destytojas" class="col-md-4 col-form-label text-md-right">{{ __('Dėstytojas:') }}</label>
+                            <div class="col-md-6">
+                                {{ \App\Models\User::find($id->lecturer_id)->name }}
+                            </div>
+                        </div>
+
+                        <div class="form-group row align-items-baseline">
                             <label for="aprasas" class="col-md-4 col-form-label text-md-right">{{ __('Aprašas:') }}</label>
                             <div class="col-md-6">
                                 {{$id->aprasas}}
