@@ -130,7 +130,12 @@ class TemaController extends Controller
     public function edit(Tema $id)
     {
         if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
-        return view('temos/edit', compact('id'));
+        $destytojas = User::find($id->lecturer_id);
+        $destytojai = DB::table('users')->where([
+            ['role', '=', 'lecturer'],
+            ['id', '!=', $destytojas->id]
+        ])->get();
+        return view('temos/edit', compact('id', 'destytojas', 'destytojai'));
     }
 
     public function update(Tema $id)
@@ -139,7 +144,8 @@ class TemaController extends Controller
         $duomenys = \request()->validate([
             'pavadinimas' => 'required',
             'aprasas' => 'required',
-            'stud_limitas' => "required|numeric|min:$id->pasirinkusieji"
+            'stud_limitas' => "required|numeric|min:$id->pasirinkusieji",
+            'lecturer_id' => 'required'
         ]);
         $id->update($duomenys);
         return redirect('/home');
