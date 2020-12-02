@@ -26,7 +26,7 @@
                                     <td>{{ $vartotojas->id }}</td>
                                     <td>{{ $vartotojas->name }}</td>
                                     <td>
-                                        <a href="/siuloma/{{$vartotojas->id}}" class="btn btn-primary">Detaliau</a>
+                                        <a href="/userlist/{{$vartotojas->id}}" class="btn btn-primary">Detaliau</a>
                                         <a href="/siuloma/edit/{{$vartotojas->id}}" class="btn btn-primary">Redaguoti</a>
                                         <a href="/siuloma/delete/{{$vartotojas->id}}" class="btn btn-danger">Šalinti</a>
                                     </td>

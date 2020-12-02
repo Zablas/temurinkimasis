@@ -31,7 +31,14 @@ class HomeController extends Controller
 
     public function userList()
     {
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         $vartotojai = User::all();
         return view('vartotojai/index', compact('vartotojai'));
+    }
+
+    public function show(User $id)
+    {
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
+        return view('vartotojai/show', compact('id'));
     }
 }
