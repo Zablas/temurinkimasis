@@ -25,10 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="161b95f1-6592-4d97-a489-51a9e0d5c153" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/vartotojai/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,13 +170,14 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/temos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/vartotojai" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\vartotojai" />
       <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\temos" />
       <recent name="D:\Laravel projektai\temurinkimasis\resources\views\siulomos" />
       <recent name="C:\Users\Karolis\Desktop\Tinklu laborai\Laravel projektai\temurinkimasis\resources\views\siulomos" />
@@ -207,7 +207,7 @@
       <workItem from="1606518361980" duration="1236000" />
       <workItem from="1606647540098" duration="95000" />
       <workItem from="1606906091042" duration="590000" />
-      <workItem from="1606906885961" duration="1133000" />
+      <workItem from="1606906885961" duration="2184000" />
     </task>
     <servers />
   </component>

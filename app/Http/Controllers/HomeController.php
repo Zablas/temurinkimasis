@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,6 +31,7 @@ class HomeController extends Controller
 
     public function userList()
     {
-        return 'Labas';
+        $vartotojai = User::all();
+        return view('vartotojai/index', compact('vartotojai'));
     }
 }
