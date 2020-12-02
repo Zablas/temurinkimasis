@@ -27,4 +27,9 @@ class HomeController extends Controller
         $temos = Tema::all();
         return view('home', compact('temos'));
     }
+
+    public function userList()
+    {
+        return 'Labas';
+    }
 }
