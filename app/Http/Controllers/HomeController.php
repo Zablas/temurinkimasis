@@ -41,4 +41,23 @@ class HomeController extends Controller
         if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
         return view('vartotojai/show', compact('id'));
     }
+
+    public function edit(User $id)
+    {
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
+        return view('vartotojai/edit', compact('id'));
+    }
+
+    public function update(User $id)
+    {
+        if(!auth()->user()->isAdmin()) abort(403, 'Nesate administratorius.');
+        $duomenys = \request()->validate([
+            'vardas' => 'required',
+            'role' => 'required'
+        ]);
+        $id->name = $duomenys['vardas'];
+        $id->role = $duomenys['role'];
+        $id->save();
+        return redirect('/userlist');
+    }
 }

@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/userlist', [App\Http\Controllers\HomeController::class, 'userList'])->name('userList');
+Route::get('/userlist/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit']);
+Route::put('/userlist/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('userlist/update');
 Route::get('/userlist/{id}', [App\Http\Controllers\HomeController::class, 'show']);
 
 Route::get('/tema/pending', [App\Http\Controllers\TemaController::class, 'students'])->name('tema/pending');

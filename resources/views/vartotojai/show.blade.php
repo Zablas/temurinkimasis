@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group row align-items-baseline">
-                            <label for="pasirinkta" class="col-md-4 col-form-label text-md-right">{{ __('Pasirinkta tema:') }}</label>
+                            <label for="pasirinkta" class="col-md-4 col-form-label text-md-right">{{ __('Ar patvirtinta:') }}</label>
                             <div class="col-md-6">
                                 @if($id->ar_patvirtinta_tema)
                                     Taip
